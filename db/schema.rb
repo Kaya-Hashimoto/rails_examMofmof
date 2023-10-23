@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2023_10_22_155002) do
 
-  create_table "property", force: :cascade do |t|
+  create_table "properties", force: :cascade do |t|
     t.string "property_name"
     t.string "rent"
     t.string "built_year"
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2023_10_22_155002) do
     t.string "line_name"
     t.string "station_name"
     t.string "walking_minutes"
-    t.integer "properties_id", null: false
+    t.integer "property_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["properties_id"], name: "index_stations_on_properties_id"
+    t.index ["property_id"], name: "index_stations_on_property_id"
   end
 
-  add_foreign_key "stations", "properties", column: "properties_id"
+  add_foreign_key "stations", "properties"
 end

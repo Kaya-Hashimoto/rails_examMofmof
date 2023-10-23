@@ -1,0 +1,24 @@
+<h1>Properties#index</h1>
+<p>Find me in app/views/properties/index.html.erb</p>
+  <%= link_to 'new', new_property_path %>
+    <table>
+      <tr>
+        <th>物件名</th>
+        <th>賃料</th>
+        <th>築年数</th>
+        <th>住所</th>
+        <th>備考</th>
+      </tr>
+      <tr>
+    <% @properties.each do |property| %>
+        <td><%= property.property_name %></td>
+        <td><%= property.rent %></td>
+        <td><%= property.built_year %></td>
+        <td><%= property.address %></td>
+        <td><%= property.remark %></td>
+        <td><%= link_to 'Show', property %></td>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: {confirm: '本当に削除しますか？'} %></td>
+    <% end %>
+      </tr>
+    </table>
