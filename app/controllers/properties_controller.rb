@@ -33,6 +33,8 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
+    @property.destroy
+    redirect_to properties_path, notice: "削除しました"
   end
 
 
