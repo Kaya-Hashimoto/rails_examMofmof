@@ -1,0 +1,18 @@
+<h1>物件情報詳細</h1>
+
+<p>物件名：<%= @property.property_name %></p>
+<p>家賃：<%= @property.rent %>円</p>
+<p>築年数：<%= @property.built_year %>年</p>
+<p>住所：<%= @property.address %></p>
+<p>備考：<%= @property.remark %></p>
+<hr>
+
+<% number = 0 %>
+<% @property.stations.each do |s| %>
+<h2>最寄駅<%= number += 1 %></h2>
+  <p>路線名：<%= s.line_name %></p>
+  <p>駅名：<%= s.station_name %></p>
+  <p>徒歩分数：<%= s.walking_minutes %>分</p>
+<% end %>
+<%= link_to '編集', edit_property_path %> |
+<%= link_to '戻る', properties_path %>
